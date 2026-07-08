@@ -97,10 +97,8 @@ def count_tokens(path, tokenizer_name):
     total_tokens = 0
     file_results = []
 
-    # === ADD THESE LINES ===
     EXCLUDE_DIRS = {'.git', '__pycache__', 'node_modules', '.venv', 'venv', '.tox', '.mypy_cache'}
     EXCLUDE_FILES = {'*.pyc', '*.pyo', '*.o', '*.so', '*.dll', '*.exe', '*.bin', '*.db', '*.sqlite'}
-    # ========================
 
     if os.path.isfile(path):
         tokens, results = process_file(path, tokenizer)
@@ -119,6 +117,8 @@ def count_tokens(path, tokenizer_name):
                 tokens, results = process_file(file_path, tokenizer, path)
                 total_tokens += tokens
                 file_results.extend(results)
+
+    file_results.sort(key=lambda x: x[1] if isinstance(x[1], int) else 0, reverse=True)
 
     return total_tokens, file_results
     
