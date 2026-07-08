@@ -97,8 +97,8 @@ def count_tokens(path, tokenizer_name):
     total_tokens = 0
     file_results = []
 
-    EXCLUDE_DIRS = {'.git', '__pycache__', 'node_modules', '.venv', 'venv', '.tox', '.mypy_cache'}
-    EXCLUDE_FILES = {'*.pyc', '*.pyo', '*.o', '*.so', '*.dll', '*.exe', '*.bin', '*.db', '*.sqlite'}
+    EXCLUDE_DIRS = {'.git', '__pycache__', 'node_modules', '.venv', 'venv', '.tox', '.mypy_cache', 'storage', 'public', 'uploads', 'build', 'dist', '.next', '.nuxt', '.cache', '.idea', '.vscode'}
+    EXCLUDE_FILES = {'*.pyc', '*.pyo', '*.o', '*.so', '*.dll', '*.exe', '*.bin', '*.db', '*.sqlite', 'package-lock.json', 'yarn.lock', '*.lock', '*.log', '*.tmp', '*.cache', '*.jpg', '*.jpeg', '*.png', '*.gif', '*.bmp', '*.tiff', '*.ico', '*.svg', '*.mp3', '*.wav', '*.flac', '*.aac', '*.ogg', '*.mp4', '*.mkv', '*.avi', '*.mov', '*.wmv', '*.zip', '*.tar', '*.gz', '*.rar', '*.7z', '*.iso', '*.pdf', '*.doc', '*.docx', '*.xls', '*.xlsx', '*.ppt', '*.pptx', '*.epub', '*.mobi', '*.azw3', '*.bin', '*.dat'}
 
     if os.path.isfile(path):
         tokens, results = process_file(path, tokenizer)
